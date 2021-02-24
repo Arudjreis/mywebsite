@@ -1,0 +1,12 @@
+baseURL = "https://ayoubfandi.com/"
+languageCode = "en-us"
+title = "My Personal Blog"
+
+[deployment]
+
+[[deployment.targets]]
+
+name = "testdeployment"
+
+URL = "s3://bucket-hosting-cloudchallenge?region=eu-west-3"
+cloudFrontDistributionID = "EFIAHVFIY3WIL"
