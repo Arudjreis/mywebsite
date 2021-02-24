@@ -71,7 +71,7 @@ npm i
 node app
 ```
 
-For production environments...
+For production mdr...
 
 ```sh
 npm install --production
