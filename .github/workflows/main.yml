@@ -14,6 +14,14 @@ jobs:
     # Checks-out your repository under personal-website, so your job can access it
     - uses: actions/checkout@v2
 
+    # Configures my AWS security credentials
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+         aws-region: us-east-1 
+
     # Sets up Hugo
     - name: Setup Hugo
       uses: peaceiris/actions-hugo@v2
@@ -24,7 +32,7 @@ jobs:
     - name: Build
       run: hugo --minify
       
-      # Deploys built website to S3
+    # Deploys built website to S3
     - name: Deploy to S3
       run: hugo deploy --force --maxDeletes -1 --invalidateCDN
       env:
